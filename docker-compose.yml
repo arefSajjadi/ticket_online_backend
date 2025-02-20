@@ -1,6 +1,6 @@
 services:
   app:
-    container_name: "ticket_online"
+    container_name: 'ticket_online_backend'
     build:
       context: .
       dockerfile: Dockerfile
