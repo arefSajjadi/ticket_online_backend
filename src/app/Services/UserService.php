@@ -17,15 +17,16 @@ class UserService extends BaseService
         ], [
             'last_login' => now(),
             'status'     => UserEnum::ACTIVE_STATUS,
-            'username' => $username,
+            'username'   => $username,
             'token'      => $token
         ]);
     }
 
     public function getUserWithToken(string|null $token): User|null
     {
-        if (!empty($token))
+        if (!empty($token)) {
             return User::firstWhere('token', '=', $token);
+        }
         return null;
     }
 }
