@@ -9,7 +9,7 @@ class SendOtpRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'mobile' => 'required|string|min:11'
+            'username' => 'required|string|min:11'
         ];
     }
 }

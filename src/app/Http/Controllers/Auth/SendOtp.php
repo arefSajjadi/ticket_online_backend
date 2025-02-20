@@ -14,7 +14,7 @@ class SendOtp extends Controller
 {
     public function __invoke(SendOtpRequest $request): JsonResponse
     {
-        $key = CacheEnum::USER_OTP_ . $request->mobile;
+        $key = CacheEnum::USER_OTP_ . $request->username;
 
         Cache::put($key, $otp = rand(1000, 9999));
 
@@ -22,7 +22,7 @@ class SendOtp extends Controller
 
         if ($lock->get()) {
             try {
-                SmsFacade::send($request->mobile, 'otp', [
+                SmsFacade::send($request->username, 'otp', [
                     'token' => $otp
                 ]);
             } finally {
