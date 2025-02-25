@@ -2,16 +2,16 @@
 
 namespace App\Facades;
 
-use App\Repositories\UserRepository;
+use App\Repositories\ConcertRepository;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @mixin UserRepository
+ * @mixin ConcertRepository
  */
-class UserFacade extends Facade
+class ConcertFacade extends Facade
 {
     protected static function getFacadeAccessor(): string
     {
-        return UserRepository::class;
+        return ConcertRepository::class;
     }
 }

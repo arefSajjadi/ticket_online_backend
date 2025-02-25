@@ -1,18 +1,25 @@
 <?php
 
-namespace App\Services;
+namespace App\Repositories;
 
 use App\Enum\UserEnum;
 use App\Models\User;
 use Illuminate\Support\Str;
 
-class UserService extends BaseService
+class UserRepository extends BaseRepository
 {
+    public string $model = User::class;
+
+    public function getModel(): User
+    {
+        return new $this->model();
+    }
+
     public function login($username): User
     {
         $token = Str::random(64);
 
-        return User::updateOrCreate([
+        return $this->model::updateOrCreate([
             'username' => $username
         ], [
             'last_login' => now(),
@@ -25,7 +32,7 @@ class UserService extends BaseService
     public function getUserWithToken(string|null $token): User|null
     {
         if (!empty($token)) {
-            return User::firstWhere('token', '=', $token);
+            return $this->model::firstWhere('token', '=', $token);
         }
         return null;
     }

@@ -2,8 +2,9 @@
 
 namespace App\Providers;
 
+use App\Repositories\ConcertRepository;
+use App\Repositories\UserRepository;
 use App\Services\KavehNegarService;
-use App\Services\UserService;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\ServiceProvider;
 
@@ -11,8 +12,9 @@ class AppServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->app->singleton(KavehNegarService::class, KavehNegarService::class);
-        $this->app->singleton(UserService::class, UserService::class);
+        $this->repositories();
+
+        $this->services();
     }
 
     public function boot(): void
@@ -20,5 +22,16 @@ class AppServiceProvider extends ServiceProvider
         Carbon::serializeUsing(function (Carbon $carbon) {
             return $carbon->toDateTimeString();
         });
+    }
+
+    public function repositories(): void
+    {
+        $this->app->singleton(UserRepository::class, UserRepository::class);
+        $this->app->singleton(ConcertRepository::class, ConcertRepository::class);
+    }
+
+    public function services(): void
+    {
+        $this->app->singleton(KavehNegarService::class, KavehNegarService::class);
     }
 }
