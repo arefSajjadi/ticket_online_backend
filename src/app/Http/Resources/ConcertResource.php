@@ -22,8 +22,7 @@ class ConcertResource extends JsonResource
             'status'     => $this->resource->status,
             'title'      => $this->resource->title,
             'capacity'   => $this->resource->capacity,
-            'delicate'   => 0,
-            'cost'       => $this->resource->cost,
+            'delicate'   => $this->resource->delicate,
             'address'    => $this->resource->address,
             'file'       => $this->resource->file
         ];

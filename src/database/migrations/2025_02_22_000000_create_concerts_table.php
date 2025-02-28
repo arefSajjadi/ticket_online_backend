@@ -15,7 +15,6 @@ return new class extends Migration {
             $table->string('status')->default(ConcertEnum::INACTIVE_STATUS);
             $table->string('title');
             $table->integer('capacity');
-            $table->unsignedInteger('cost')->default(0);
             $table->text('address');
             $table->text('file');
         });

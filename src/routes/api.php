@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\Login;
 use App\Http\Controllers\Auth\SendOtp;
+use App\Http\Controllers\Concert\Hall\Show as ShowHall;
 use App\Http\Controllers\Concert\Index as IndexConcert;
 use App\Http\Controllers\Concert\Show as ShowConcert;
 use App\Http\Controllers\User\Show as ShowUser;
@@ -21,6 +22,10 @@ Route::middleware(UserAuthenticate::class)->group(static function () {
 
 
 Route::prefix('concert')->group(static function () {
+    Route::prefix('{id}/hall')->group(static function () {
+        Route::get('/', ShowHall::class);
+    });
+
     Route::get('/', IndexConcert::class);
     Route::get('/{id}', ShowConcert::class);
 });
