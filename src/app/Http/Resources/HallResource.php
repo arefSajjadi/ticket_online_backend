@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use App\Models\Hall;
+use App\Models\Seat;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -20,7 +21,20 @@ class HallResource extends JsonResource
             'status'     => $this->resource->status,
             'name'       => $this->resource->name,
             'seats'      => $this->when($this->resource->seats()->exists(), function () {
-                return SeatResource::collection($this->resource->seats);
+                return $this->resource->seats->groupBy(fn($seat) => $seat['block'])->mapWithKeys(function ($seats, $key) {
+                    return [
+                        "block-$key" => $seats->groupBy(fn(Seat $seat) => $seat->row)->mapWithKeys(fn($seat, $key) => [
+                            (int)$key => $seat->map(fn($seat) => $seat->only([
+                                'id',
+                                'status',
+                                'block',
+                                'row',
+                                'column',
+                                'cost'
+                            ]))
+                        ])
+                    ];
+                });
             })
         ];
     }
