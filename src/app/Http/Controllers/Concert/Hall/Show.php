@@ -13,8 +13,6 @@ class Show extends Controller
     {
         $concert = ConcertFacade::getModel()->findOrFail($id);
 
-        $hall = $concert->halls()->active()->firstOrFail();
-
-        return parent::json(HallResource::make($hall));
+        return parent::json(HallResource::make($concert->hall));
     }
 }

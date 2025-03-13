@@ -19,10 +19,12 @@ class ConcertResource extends JsonResource
             'updated_at' => $this->resource->updated_at->toDateTimeString(),
             'date'       => $this->resource->date?->toDateString(),
             'time'       => $this->resource->date?->toTimeString(),
+            'cost'       => $this->resource->cost,
             'status'     => $this->resource->status,
             'title'      => $this->resource->title,
             'capacity'   => $this->resource->capacity,
-            'delicate'   => $this->resource->delicate,
+            'reserve'    => $this->resource->reserve,
+            'remaining'  => $this->resource->remaining,
             'address'    => $this->resource->address,
             'file'       => $this->resource->file
         ];

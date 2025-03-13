@@ -14,7 +14,6 @@ return new class extends Migration {
             $table->dateTime('date')->nullable();
             $table->string('status')->default(ConcertEnum::INACTIVE_STATUS);
             $table->string('title');
-            $table->integer('capacity');
             $table->text('address');
             $table->text('file');
         });

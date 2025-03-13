@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
 class User extends BaseModel
 {
     protected $table = 'users';
@@ -18,4 +20,9 @@ class User extends BaseModel
         'updated_at' => 'datetime',
         'last_login' => 'datetime'
     ];
+
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class, 'user_id', 'id');
+    }
 }

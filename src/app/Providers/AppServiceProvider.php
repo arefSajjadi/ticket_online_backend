@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use App\Repositories\ConcertRepository;
 use App\Repositories\HallRepository;
+use App\Repositories\OrderItemRepository;
+use App\Repositories\OrderRepository;
+use App\Repositories\SeatRepository;
 use App\Repositories\UserRepository;
 use App\Services\KavehNegarService;
 use Illuminate\Support\Carbon;
@@ -30,6 +33,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(UserRepository::class, UserRepository::class);
         $this->app->singleton(ConcertRepository::class, ConcertRepository::class);
         $this->app->singleton(HallRepository::class, HallRepository::class);
+        $this->app->singleton(OrderRepository::class, OrderRepository::class);
+        $this->app->singleton(OrderItemRepository::class, OrderItemRepository::class);
+        $this->app->singleton(SeatRepository::class, SeatRepository::class);
     }
 
     public function services(): void
