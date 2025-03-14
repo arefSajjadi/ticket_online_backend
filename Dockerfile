@@ -1,12 +1,12 @@
-FROM php:8.2-fpm
+FROM docker.arvancloud.ir/php:8.2-fpm
 
 MAINTAINER Aref Sajjadi <arefsajjadi80@gmail.com>
 
 WORKDIR /var/www
 
-RUN apt-get update
-RUN apt-get install -y nginx unzip
+RUN apt-get update && apt-get install -y nginx unzip libxml2-dev
 RUN docker-php-ext-install pdo_mysql
+RUN docker-php-ext-install soap
 
 RUN rm /etc/nginx/sites-enabled/default
 

@@ -2,14 +2,9 @@
 
 namespace App\Http\Requests\Order;
 
-use App\Models\User;
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseAuthenticatedRequest;
 
-/**
- * @property mixed seat_ids
- * @property User user
- */
-class StoreRequest extends FormRequest
+class StoreRequest extends BaseAuthenticatedRequest
 {
     public function rules(): array
     {

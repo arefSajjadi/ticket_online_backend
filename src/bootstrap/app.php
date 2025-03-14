@@ -1,6 +1,5 @@
 <?php
 
-use App\Exceptions\ApplicationException;
 use App\Http\Middleware\TrustHeader;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -17,15 +16,15 @@ return Application::configure(basePath: dirname(__DIR__))
             TrustHeader::class
         ]);
     })->withExceptions(function (Exceptions $exceptions) {
-        $exceptions->respond(function (Response $response, Exception $exception) {
+        $exceptions->respond(function (Response $response, Throwable $throwable) {
             $data = 'application_error';
 
             $ApplicationException = [
-                ApplicationException::class,
+                Exception::class,
                 ValidationException::class,
             ];
 
-            if (app()->hasDebugModeEnabled() or in_array(get_class($exception), $ApplicationException)) {
+            if (app()->hasDebugModeEnabled() or in_array(get_class($throwable), $ApplicationException)) {
                 $data = json_decode($response->getContent(), true);
             }
 
