@@ -8,6 +8,7 @@ use App\Http\Controllers\Concert\Show as ShowConcert;
 use App\Http\Controllers\Order\Pay as PayOrder;
 use App\Http\Controllers\Order\Show as ShowOrder;
 use App\Http\Controllers\Order\Store as StoreOrder;
+use App\Http\Controllers\Order\Verify as VerifyOrder;
 use App\Http\Controllers\User\Show as ShowUser;
 use App\Http\Middleware\UserAuthenticate;
 use Illuminate\Support\Facades\Route;
@@ -24,8 +25,9 @@ Route::middleware(UserAuthenticate::class)->group(static function () {
 
     Route::prefix('order')->group(static function () {
         Route::get('/{id}', ShowOrder::class);
-        Route::post('/{id}/pay', PayOrder::class);
         Route::post('/', StoreOrder::class);
+        Route::post('/{id}/pay', PayOrder::class);
+        Route::post('/{id}/verify', VerifyOrder::class);
     });
 });
 

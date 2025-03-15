@@ -15,7 +15,7 @@ class Pay extends Controller
     {
         $order = $request->user->orders()->findOrFail($id);
 
-        if (now()->diffInHours($order->created_at) > 24) {
+        if ($order->created_at->diffInHours(now()) > 24) {
             throw new Exception('ORDER_EXPIRED');
         }
 
@@ -23,10 +23,8 @@ class Pay extends Controller
             throw new Exception('ORDER_STATUS_INVALID');
         }
 
-        $url = ParsianIpgFacade::getToken($order);
-
         return parent::json([
-            'redirect_url' => $url
+            'redirect_url' =>  ParsianIpgFacade::getToken($order)
         ]);
     }
 }
