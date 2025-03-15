@@ -25,12 +25,15 @@
         <hr>
         <br>
 
-        <form action="{{config('app.url') . "/api/order/$order->id/verify"}}" method="post">
-            <input type="hidden" hidden value="{{$order->id}}" name="fake_gateway">
+        <div style="display: flex; justify-content: center">
+            <form action="{{config('app.url') . "/api/order/$order->id/verify"}}" method="post">
+                <button type="submit">cancel</button>
+            </form>
 
-            <button type="submit">cancel</button>
-
-            <button type="submit">confirm</button>
-        </form>
+            <form action="{{config('app.url') . "/api/order/$order->id/verify"}}" method="post" style="margin-left: 25px">
+                <input type="hidden" hidden value="{{$order->id}}" name="fake_gateway">
+                <button type="submit">confirm</button>
+            </form>
+        </div>
     </div>
 </div>
