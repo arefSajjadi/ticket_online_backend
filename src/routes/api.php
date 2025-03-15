@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\SendOtp;
 use App\Http\Controllers\Concert\Hall\Show as ShowHall;
 use App\Http\Controllers\Concert\Index as IndexConcert;
 use App\Http\Controllers\Concert\Show as ShowConcert;
+use App\Http\Controllers\Order\fakeGateway as fakeGatewayOrder;
 use App\Http\Controllers\Order\Pay as PayOrder;
 use App\Http\Controllers\Order\Show as ShowOrder;
 use App\Http\Controllers\Order\Store as StoreOrder;
@@ -25,9 +26,10 @@ Route::middleware(UserAuthenticate::class)->group(static function () {
 
     Route::prefix('order')->group(static function () {
         Route::get('/{id}', ShowOrder::class);
+        Route::get('/{id}/fake-gateway', fakeGatewayOrder::class)->withoutMiddleware(UserAuthenticate::class);
         Route::post('/', StoreOrder::class);
         Route::post('/{id}/pay', PayOrder::class);
-        Route::post('/{id}/verify', VerifyOrder::class);
+        Route::post('/{id}/verify', VerifyOrder::class)->name('verify')->withoutMiddleware(UserAuthenticate::class);
     });
 });
 

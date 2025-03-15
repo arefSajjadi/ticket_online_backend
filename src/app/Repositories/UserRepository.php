@@ -17,7 +17,13 @@ class UserRepository extends BaseRepository
 
     public function login($username): User
     {
-        $token = Str::random(64);
+        if (!empty($user = User::firstWhere('username', $username))) {
+            $token = $user->token;
+        }
+
+        if (empty($token)) {
+            $token = Str::random(64);
+        }
 
         return $this->model::updateOrCreate([
             'username' => $username

@@ -9,6 +9,7 @@ use App\Repositories\OrderRepository;
 use App\Repositories\SeatRepository;
 use App\Repositories\UserRepository;
 use App\Services\KavehNegarService;
+use App\Services\ParsianIpgService;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\ServiceProvider;
 
@@ -41,5 +42,6 @@ class AppServiceProvider extends ServiceProvider
     public function services(): void
     {
         $this->app->singleton(KavehNegarService::class, KavehNegarService::class);
+        $this->app->singleton(ParsianIpgService::class, ParsianIpgService::class);
     }
 }

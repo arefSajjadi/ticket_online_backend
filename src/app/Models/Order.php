@@ -44,7 +44,7 @@ class Order extends BaseModel
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_idl', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function items(): HasMany
