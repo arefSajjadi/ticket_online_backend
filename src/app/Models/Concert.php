@@ -37,14 +37,14 @@ class Concert extends BaseModel
     protected function capacity(): Attribute
     {
         return Attribute::make(
-            get: fn() => $this->hall->seats()->usable()->count()
+            get: fn() => $this->hall?->seats()->usable()->count()
         );
     }
 
     protected function reserve(): Attribute
     {
         return Attribute::make(
-            get: fn() => $this->hall->seats()
+            get: fn() => $this->hall?->seats()
                 ->whereHas('orderItems.order', fn(Builder $query) => $query->paid())
                 ->count()
         );
