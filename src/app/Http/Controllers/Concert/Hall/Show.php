@@ -13,6 +13,6 @@ class Show extends Controller
     {
         $concert = ConcertFacade::getModel()->findOrFail($id);
 
-        return parent::json(HallResource::make($concert->hall));
+        return parent::json($concert->hall ? HallResource::make($concert->hall) : []);
     }
 }
