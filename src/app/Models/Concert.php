@@ -73,7 +73,7 @@ class Concert extends BaseModel
     protected function cost(): Attribute
     {
         return Attribute::make(
-            get: fn(mixed $value) => $this->hall->seats()->usable()->min('cost') ?? 0
+            get: fn(mixed $value) => $this->hall?->seats()->usable()->min('cost') ?? 0
         );
     }
 
