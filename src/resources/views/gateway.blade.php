@@ -26,11 +26,11 @@
         <br>
 
         <div style="display: flex; justify-content: center">
-            <form action="{{config('app.url') . "/api/order/$order->id/verify"}}" method="post">
+            <form action="{{config('app.website') . "/api/order/$order->id/verify"}}" method="post">
                 <button type="submit">cancel</button>
             </form>
 
-            <form action="{{config('app.url') . "/api/order/$order->id/verify"}}" method="post" style="margin-left: 25px">
+            <form action="{{config('app.website') . "/api/order/$order->id/verify"}}" method="post" style="margin-left: 25px">
                 <input type="hidden" hidden value="{{$order->id}}" name="fake_gateway">
                 <button type="submit">confirm</button>
             </form>
