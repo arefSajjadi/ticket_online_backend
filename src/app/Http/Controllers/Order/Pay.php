@@ -23,8 +23,8 @@ class Pay extends Controller
             throw new Exception('ORDER_STATUS_INVALID');
         }
 
-        if (true) { #fakeUrl
-            $url = config('app.url') . "/api/order/$order->id/fake-gateway";
+        if (true) {#fakeUrl
+            $url = config('app.website') . "/api/order/$order->id/fake-gateway";
         } else {
             $url = ParsianIpgFacade::getToken($order);
         }
