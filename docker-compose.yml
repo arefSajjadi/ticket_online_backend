@@ -1,6 +1,6 @@
 services:
   app:
-    container_name: 'ticket_online_backend'
+    container_name: 'api.sazticket.ir'
     build:
       context: .
       dockerfile: Dockerfile
@@ -10,8 +10,10 @@ services:
       - "8000:80"
     restart: always
     networks:
-     - database_mysql_network
+      sazticket:
+        aliases:
+          - api_sazticket
 
 networks:
-  database_mysql_network:
+  sazticket:
       external: true

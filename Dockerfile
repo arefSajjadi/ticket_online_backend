@@ -1,4 +1,4 @@
-FROM docker.arvancloud.ir/php:8.2-fpm
+FROM php:8.2-fpm
 
 MAINTAINER Aref Sajjadi <arefsajjadi80@gmail.com>
 
