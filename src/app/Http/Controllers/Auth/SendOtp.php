@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Enum\CacheEnum;
+use App\Enums\CacheEnum;
 use App\Facades\SmsFacade;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\SendOtpRequest;

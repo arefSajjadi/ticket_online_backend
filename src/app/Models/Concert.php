@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use App\Enum\ConcertEnum;
-use App\Enum\HallEnum;
+use App\Enums\ConcertEnum;
+use App\Enums\HallEnum;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\HasMany;

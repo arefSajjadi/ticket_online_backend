@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Enum\OrderEnum;
+use App\Enums\OrderEnum;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -48,6 +48,11 @@ class Order extends BaseModel
     }
 
     public function items(): HasMany
+    {
+        return $this->hasMany(OrderItem::class, 'order_id', 'id');
+    }
+
+    public function has(): HasMany
     {
         return $this->hasMany(OrderItem::class, 'order_id', 'id');
     }

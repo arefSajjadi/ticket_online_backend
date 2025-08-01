@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Enum;
+namespace App\Enums;
 
-enum UserEnum
+enum ConcertEnum
 {
     const ACTIVE_STATUS = 'active';
+    const FULL_STATUS = 'full';
     const INACTIVE_STATUS = 'inactive';
 }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Order;
 
-use App\Enum\OrderEnum;
+use App\Enums\OrderEnum;
 use App\Facades\OrderFacade;
 use App\Facades\ParsianIpgFacade;
 use App\Http\Controllers\Controller;

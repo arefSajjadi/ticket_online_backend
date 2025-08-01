@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * @property Seat itemable
+ */
 class OrderItem extends BaseModel
 {
     use SoftDeletes;

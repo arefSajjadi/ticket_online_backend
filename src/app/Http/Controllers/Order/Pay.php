@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Order;
 
-use App\Enum\OrderEnum;
+use App\Enums\OrderEnum;
 use App\Facades\ParsianIpgFacade;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BaseAuthenticatedRequest;
@@ -23,7 +23,7 @@ class Pay extends Controller
             throw new Exception('ORDER_STATUS_INVALID');
         }
 
-        if (true) {#fakeUrl
+        if (true) {
             $url = config('app.website') . "/api/order/$order->id/fake-gateway";
         } else {
             $url = ParsianIpgFacade::getToken($order);

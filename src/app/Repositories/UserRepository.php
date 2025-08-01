@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Enum\UserEnum;
+use App\Enums\UserEnum;
 use App\Models\User;
 use Illuminate\Support\Str;
 

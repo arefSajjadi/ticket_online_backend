@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Enum;
+namespace App\Enums;
 
-enum ConcertEnum
+enum HallEnum
 {
     const ACTIVE_STATUS = 'active';
-    const FULL_STATUS = 'full';
     const INACTIVE_STATUS = 'inactive';
 }

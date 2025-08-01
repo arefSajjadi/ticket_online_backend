@@ -18,6 +18,7 @@ class OrderResource extends JsonResource
         return [
             'id'         => $this->resource->id,
             'created_at' => $this->resource->created_at->toDateTimeString(),
+            'paid_at'  => $this->resource->updated_at->toDateTimeString(),
             'total'      => $this->resource->total,
             'status'     => $this->resource->status,
             'concert'    => ConcertResource::make($items->first()?->itemable?->hall?->concert),

@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Enum\HallEnum;
+use App\Enums\HallEnum;
 use App\Models\Hall;
 use Illuminate\Database\Seeder;
 

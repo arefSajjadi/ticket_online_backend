@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Order;
 
-use App\Enum\OrderEnum;
+use App\Enums\OrderEnum;
 use App\Facades\SeatFacade;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Order\StoreRequest;

@@ -1,7 +1,7 @@
 <?php
 
-use App\Enum\HallEnum;
-use App\Enum\SeatEnum;
+use App\Enums\HallEnum;
+use App\Enums\SeatEnum;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;

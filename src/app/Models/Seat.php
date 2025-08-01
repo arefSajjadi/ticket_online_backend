@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Enum\SeatEnum;
+use App\Enums\SeatEnum;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphMany;

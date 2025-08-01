@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Enum;
+namespace App\Enums;
 
-enum HallEnum
+enum UserEnum
 {
     const ACTIVE_STATUS = 'active';
     const INACTIVE_STATUS = 'inactive';

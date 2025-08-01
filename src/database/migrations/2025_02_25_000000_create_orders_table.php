@@ -1,6 +1,6 @@
 <?php
 
-use App\Enum\OrderEnum;
+use App\Enums\OrderEnum;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;

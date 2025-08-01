@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Facades;
+namespace App\Enums;
 
 enum SystemEnum: string
 {

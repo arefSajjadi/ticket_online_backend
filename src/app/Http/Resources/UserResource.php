@@ -11,14 +11,15 @@ use Illuminate\Http\Resources\Json\JsonResource;
  */
 class UserResource extends JsonResource
 {
-	public function toArray(Request $request): array
-	{
-		return [
-			'id'         => $this->resource->id,
-			'created_at' => $this->resource->created_at->toDateTimeString(),
-			'updated_at' => $this->resource->updated_at->toDateTimeString(),
-			'last_login' => $this->resource->last_login?->toDateTimeString(),
-			'username'   => $this->resource->username
-		];
-	}
+    public function toArray(Request $request): array
+    {
+        return [
+            'id'           => $this->resource->id,
+            'created_at'   => $this->resource->created_at->toDateTimeString(),
+            'updated_at'   => $this->resource->updated_at->toDateTimeString(),
+            'last_login'   => $this->resource->last_login?->toDateTimeString(),
+            'username'     => $this->resource->username,
+            'latest_order' => $this->resource->orders()->paid()->latest()->first()?->items?->first()?->itemable?->hall?->concert?->title ?? null
+        ];
+    }
 }
