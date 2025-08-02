@@ -30,7 +30,7 @@ class Concert extends BaseModel
     protected function file(): Attribute
     {
         return Attribute::make(
-            get: fn(mixed $value) => $value ? config('app.website') . "/storage/concerts/$value" : config('app.website') . "/storage/default.png",
+            get: fn(mixed $value) => $value ? config('app.url') . "/storage/concerts/$value" : config('app.url') . "/storage/default.png",
         );
     }
 

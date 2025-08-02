@@ -24,7 +24,7 @@ class Pay extends Controller
         }
 
         if (true) {
-            $url = config('app.website') . "/api/order/$order->id/fake-gateway";
+            $url = config('app.url') . "/api/order/$order->id/fake-gateway";
         } else {
             $url = ParsianIpgFacade::getToken($order);
         }
